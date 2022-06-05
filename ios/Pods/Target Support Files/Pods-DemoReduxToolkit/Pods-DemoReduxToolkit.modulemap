@@ -1,0 +1,6 @@
+module Pods_DemoReduxToolkit {
+  umbrella header "Pods-DemoReduxToolkit-umbrella.h"
+
+  export *
+  module * { export * }
+}
