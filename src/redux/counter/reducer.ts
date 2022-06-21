@@ -8,16 +8,20 @@ const initialState: CounterState = {
   value: 0,
 };
 
+export const NAME_SPACE = 'counterReducer';
+
 export const counterSlice = createSlice({
-  name: 'counterReducer',
+  name: NAME_SPACE,
   initialState,
   reducers: {
-    setValue: (state, action) => ({
-      ...state,
-      value: action.payload.value,
-    }),
+    setValue(state, action) {
+      return {
+        ...state,
+        value: action.payload,
+      };
+    },
   },
 });
 
-export const counterReducer = counterSlice.reducer;
 export const {setValue} = counterSlice.actions;
+export const counterReducer = counterSlice.reducer;

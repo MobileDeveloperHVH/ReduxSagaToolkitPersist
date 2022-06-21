@@ -3,7 +3,7 @@ import {SafeAreaView, Text, View, TouchableOpacity} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 
 import {RootState} from '../store';
-import {SET_COUNTER} from '../redux/counter/action';
+import {getValue} from '../redux/counter/actions';
 
 const Navigation: React.FC = () => {
   const count = useSelector((state: RootState) => state.counterReducer.value);
@@ -15,23 +15,14 @@ const Navigation: React.FC = () => {
         <Text>{count}</Text>
         <TouchableOpacity
           onPress={() => {
-            dispatch({
-              type: SET_COUNTER,
-              payload: {
-                value: count + 1,
-              },
-            });
+            dispatch(getValue({value: count + 1}));
+            // });
           }}>
           <Text>increment</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            dispatch({
-              type: SET_COUNTER,
-              payload: {
-                value: count - 1,
-              },
-            });
+            dispatch(getValue({value: count - 1}));
           }}>
           <Text>decrement</Text>
         </TouchableOpacity>

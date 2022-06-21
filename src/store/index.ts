@@ -12,7 +12,7 @@ const sagaMiddleware = createSagaMiddleware();
 // TODO add more middleware
 const middleware = [sagaMiddleware];
 
-const persistedReducer = persistReducer(
+const persistedReducer = persistReducer<ReturnType<typeof rootReducer>>(
   {
     key: 'root',
     storage: AsyncStorage,
